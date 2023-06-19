@@ -61,7 +61,7 @@ You are missing the following permission: "View default settings" in Account sco
 
 This issue has been fixed by the removal of an account-level permission check that has been deemed unnecessary.
 
-- SCIM PATCH requests for deleting a Harness user return a “user does not exist” message in a successful delete operation. (PL-38868, ZD-44150)
+- SCIM PATCH requests for deleting a Harness user returned a “User does not exist” message during a successful delete operation. (PL-38868, ZD-44150)
 
   This issue has been resolved by returning a NULL response in the Patch operation to delete a user.
 
