@@ -388,7 +388,7 @@ To add a Terragrunt Rollback step, do the following:
    1. [Add a Deploy or Custom stage](/docs/platform/pipelines/add-a-stage/) to your pipeline.
    2. If you're setting up a Deploy stage, add a [service](https://developer.harness.io/docs/category/services) and [environment](/docs/continuous-delivery/x-platform-cd-features/environments/create-environments/).
 2. In your CD stage **Execution**, click **Add Step** and then **Terragrunt Rollback**.
-4. Enter the following Terragrunt Rollback settings.
+3. Enter the following Terragrunt Rollback settings.
 
 #### Name
 
