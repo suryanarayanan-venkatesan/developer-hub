@@ -3,7 +3,7 @@ import gs from "./components/Docs/GettingStarted";
 export enum MODULES {
     ci = 'ci',
     cd = 'cd',
-    ccm = 'ccm',
+    ccm = 'ccdm',
     ff = 'ff',
     sto = 'sto',
     srm = 'srm',
