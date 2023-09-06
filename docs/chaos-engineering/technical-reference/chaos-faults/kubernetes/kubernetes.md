@@ -606,7 +606,7 @@ This fault evaluates the application's resilience to lossy (or flaky) API reques
 
 ### Pod network rate limit
 
-Pod network rate limit is a Kubernetes pod-level chaos fault that generates Traffic Control (tc) rules with Token Bucket Filter (TBF) to assess Kubernetes pod resilience under limited network bandwidth condition.
+Pod network rate limit is a Kubernetes pod-level chaos fault that generates Traffic Control (tc) rules with Token Bucket Filter (TBF) to assess Kubernetes pod resilience under limited network bandwidth conditions.
 
 - It tests the application's resilience to limited or slow network bandwidth.
 
