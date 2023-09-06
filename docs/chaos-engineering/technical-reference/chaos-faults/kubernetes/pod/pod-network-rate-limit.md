@@ -4,7 +4,7 @@ title: Pod network rate limit
 ---
 ## Introduction
 
-Pod network rate limit is a Kubernetes pod-level chaos fault that generates Traffic Control (tc) rules with Token Bucket Filter (TBF) to assess Kubernetes pod resilience under limited network bandwidth condition.
+Pod network rate limit is a Kubernetes pod-level chaos fault that generates Traffic Control (tc) rules with Token Bucket Filter (TBF) to assess Kubernetes pod resilience under limited network bandwidth conditions.
 
 ![Pod Network Rate Limit](./static/images/pod-network-rate-limit.png)
 
@@ -12,7 +12,7 @@ Pod network rate limit is a Kubernetes pod-level chaos fault that generates Traf
 Pod network rate limit:
 - Assess how well applications and services perform under constrained network bandwidth, helping identify potential bottlenecks and weaknesses.
 - Ensure that critical services receive the necessary network bandwidth allocation while non-essential services are appropriately limited to maintain overall system stability.
-- Evaluate the impact of network rate limits on security-related functions such as DDoS mitigation or intrusion detection, and assessing whether the system can withstand such scenarios.
+- Evaluate the impact of network rate limits on security-related functions, such as DDoS mitigation or intrusion detection, and assessing whether the system can withstand such scenarios.
 - Determine the optimal network bandwidth allocation for different pods and applications to effectively plan resource usage and accommodate growth without degradation in performance.
 
 :::info note
@@ -36,12 +36,12 @@ Pod network rate limit:
       </tr>
       <tr>
         <td> BURST </td>
-        <td> Specify the burst for the size of bucket, maximum amount of bytes that tokens can be available for instantaneously </td>
+        <td> Specify the burst for the size of the bucket, maximum amount of bytes that tokens can be available for instantaneously. </td>
         <td> For more information, go to <a href="https://developer.harness.io/docs/chaos-engineering/chaos-faults/kubernetes/pod/pod-network-rate-limit#rate-limit">rate limit</a>.</td>
       </tr>
       <tr>
         <td> LIMIT </td>
-        <td> Specify the limit for the number of bytes that can be queued waiting for tokens to become available </td>
+        <td> Specify the limit for the number of bytes that can be queued waiting for tokens to become available. </td>
         <td> For more information, go to <a href="https://developer.harness.io/docs/chaos-engineering/chaos-faults/kubernetes/pod/pod-network-rate-limit#rate-limit">rate limit</a>.</td>
       </tr>
     </table>
@@ -55,12 +55,12 @@ Pod network rate limit:
       </tr>
       <tr>
         <td> MIN_BURST </td>
-        <td> Specify the size of the peakrate bucket </td>
+        <td> Specify the size of the peakrate bucket. </td>
         <td> For more information, go to <a href="https://developer.harness.io/docs/chaos-engineering/chaos-faults/kubernetes/pod/pod-network-rate-limit#advance-tunables">advance tunables</a>.</td>
       </tr>
       <tr>
         <td> PEAK_RATE </td>
-        <td> Specify the maximum depletion rate of the bucket </td>
+        <td> Specify the maximum depletion rate of the bucket. </td>
         <td> For more information, go to <a href="https://developer.harness.io/docs/chaos-engineering/chaos-faults/kubernetes/pod/pod-network-rate-limit#advance-tunables">advance tunables</a>.</td>
       </tr>
       <tr>
@@ -76,11 +76,11 @@ Pod network rate limit:
       <tr>
         <td> CONTAINER_RUNTIME </td>
         <td> Container runtime interface for the cluster. </td>
-        <td> Default: containerd. Supports docker, containerd and crio. For more information, go to <a href="https://developer.harness.io/docs/chaos-engineering/chaos-faults/kubernetes/pod/pod-network-rate-limit#container-runtime-and-socket-path">container runtime</a>. </td>
+        <td> Default: containerd. Supports Docker, containerd and cri-o. For more information, go to <a href="https://developer.harness.io/docs/chaos-engineering/chaos-faults/kubernetes/pod/pod-network-rate-limit#container-runtime-and-socket-path">container runtime</a>. </td>
       </tr>
       <tr>
         <td> SOCKET_PATH </td>
-        <td> Path of the containerd or crio or docker socket file. </td>
+        <td> Path of the containerd or cri-o or Docker socket file. </td>
         <td> Defaults to <code>/run/containerd/containerd.sock</code>. For more information, go to <a href="https://developer.harness.io/docs/chaos-engineering/chaos-faults/kubernetes/pod/pod-network-rate-limit#container-runtime-and-socket-path">socket path</a>.</td>
       </tr>
       <tr>
@@ -110,8 +110,8 @@ Pod network rate limit:
       </tr>  
       <tr>
         <td> DESTINATION_PORTS </td>
-        <td> Ports of the destination services or pods or the CIDR blocks(range of IPs), the accessibility to which is impacted </td>
-        <td> Comma separated port(s) can be provided. If not provided, it will induce network chaos for all ports. </td>
+        <td> Ports of the destination services or pods or the CIDR blocks(range of IPs), the accessibility to which is impacted. </td>
+        <td> Comma-separated ports can be provided. If not provided, it will induce network chaos for all ports. </td>
       </tr>
       <tr>
         <td> PODS_AFFECTED_PERC </td>
@@ -130,11 +130,11 @@ Pod network rate limit:
       </tr>
     </table>
 
-### Rate Limit
+### Rate limit
 
-- `NETWORK_BANDWIDTH`: It contains the network bandwidth rate limit
-- `BURST`: It contains the size of bucket, maximum amount of bytes that tokens can be available for instantaneously
-- `LIMIT`: It contains the limit for the number of bytes that can be queued waiting for tokens to become available
+- `NETWORK_BANDWIDTH`: It contains the network bandwidth rate limit.
+- `BURST`: It contains the size of the bucket, maximum amount of bytes that tokens can be available for instantaneously.
+- `LIMIT`: It contains the limit for the number of bytes that can be queued waiting for tokens to become available.
 
 The following YAML snippet illustrates the use of this environment variable:
 
@@ -168,10 +168,10 @@ spec:
           value: '60'
 ```
 
-### Advance Tunables
+### Advance tunables
 
-- `MIN_BURST`: It contains the size of the peakrate bucket
-- `PEAK_RATE`: It contains the maximum depletion rate of the bucket
+- `MIN_BURST`: It contains the size of the peakrate bucket.
+- `PEAK_RATE`: It contains the maximum depletion rate of the bucket.
 
 The following YAML snippet illustrates the use of this environment variable:
 
@@ -216,7 +216,11 @@ Default IPs and hosts whose traffic is interrupted because of the network faults
 - `DESTINATION_IPS`: It contains the IP addresses and ports of the services or pods or the CIDR blocks (range of IPs) whose accessibility is impacted.
 - `DESTINATION_HOSTS`: It contains the DNS names or FQDN names of the services and ports whose accessibility is impacted.
 
-<b>NOTE:</b> Ports can be specified by using a pipe (|) as a separator. While providing ports is optional, omitting them will affect all ports associated with the destination IPs and hosts.
+:::note
+
+Ports can be specified by using a pipe (|) as a separator. While providing ports is optional, omitting them will affect all ports associated with the destination IPs and hosts.
+
+:::
 
 The following YAML snippet illustrates the use of these environment variables:
 
@@ -256,12 +260,12 @@ spec:
           value: '60'
 ```
 
-### Source And Destination Ports
+### Source And destination ports
 
-By default, the network experiments disrupt traffic for all the source and destination ports. The interruption of specific port(s) can be tuned via `SOURCE_PORTS` and `DESTINATION_PORTS` ENV.
+By default, the network experiments disrupt traffic for all the source and destination ports. The interruption of specific ports can be tuned via `SOURCE_PORTS` and `DESTINATION_PORTS` ENV.
 
-- `SOURCE_PORTS`: It contains ports of the target application, the accessibility to which is impacted
-- `DESTINATION_PORTS`: It contains the ports of the destination services or pods or the CIDR blocks(range of IPs), the accessibility to which is impacted
+- `SOURCE_PORTS`: It contains ports of the target application, the accessibility to which is impacted.
+- `DESTINATION_PORTS`: It contains the ports of the destination services or pods or the CIDR blocks(range of IPs), the accessibility to which is impacted.
 
 Use the following example to tune this:
 
@@ -345,7 +349,7 @@ spec:
 The `CONTAINER_RUNTIME` and `SOCKET_PATH` environment variables to set the container runtime and socket file path, respectively.
 
 - `CONTAINER_RUNTIME`: It supports `docker`, `containerd`, and `crio` runtimes. The default value is `containerd`.
-- `SOCKET_PATH`: It contains path of containerd socket file by default(`/run/containerd/containerd.sock`). For `docker`, specify path as `/var/run/docker.sock`. For `crio`, specify path as `/var/run/crio/crio.sock`.
+- `SOCKET_PATH`: It contains the path of the containerd socket file by default(`/run/containerd/containerd.sock`). For `docker`, specify path as `/var/run/docker.sock`. For `crio`, specify path as `/var/run/crio/crio.sock`.
 
 The following YAML snippet illustrates the use of these environment variables:
 
